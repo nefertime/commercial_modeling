@@ -10,31 +10,48 @@ body, html {
 
 /* Container Centering */
 .container {
-    text-align: center;
-    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Profile Section Layout */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Space between image and text */
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: nowrap; /* Ensure the image and text stay side by side */
 }
 
 /* Profile Picture Styling */
 .profile-pic {
+    height: 1000px; /* Increased height for prominence */
     width: auto;
-    height: 1000px; /* Adjust height as needed */
-    margin-bottom: 20px;
-    border-radius: 0; /* Keeps it square/rectangular */
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
-    object-fit: cover; /* Ensures the image fills the area proportionally */
+    border-radius: 0; /* Keeps the rectangle shape */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
+    object-fit: cover;
+}
+
+/* About Me Section */
+.about-me {
+    max-width: 600px;
+    text-align: left;
 }
 
 /* Title Styling */
-h1 {
-    font-size: 36px;
+.about-me h1 {
+    font-family: 'Orbitron', sans-serif; /* Modern font */
+    font-size: 48px;
+    color: white; /* Ensures the color is white */
     margin-bottom: 20px;
-    color: #FFD700; /* Golden color for elegance */
 }
 
 /* Bio Styling */
-.bio {
+.about-me p {
     font-size: 18px;
     line-height: 1.8;
-    margin: 0 auto;
-    max-width: 600px;
 }
