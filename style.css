@@ -17,7 +17,7 @@ body, html {
 /* Profile Picture Styling */
 .profile-pic {
     width: auto;
-    height: 500px; /* Adjust height as needed */
+    height: 1000px; /* Adjust height as needed */
     margin-bottom: 20px;
     border-radius: 0; /* Keeps it square/rectangular */
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
