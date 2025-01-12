@@ -23,7 +23,7 @@ body, html {
     align-items: center;
     gap: 30px;
     max-width: 1200px;
-    margin-bottom: 50px; /* Space before the gallery */
+    margin-bottom: 30px; /* Reduce space before the gallery */
 }
 
 /* Profile Picture Styling */
@@ -56,15 +56,15 @@ body, html {
 /* Separator Styling */
 .separator {
     width: 90%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin: 50px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Minimal border */
+    margin: 20px 0; /* Smaller margin for less space */
 }
 
 /* Gallery Section */
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three pictures per row */
-    gap: 20px; /* Space between pictures */
+    gap: 10px; /* Smaller space between pictures */
     max-width: 1200px; /* Align with the profile section */
     width: 100%; /* Responsive scaling */
     justify-items: center; /* Center images in their grid cells */
@@ -72,9 +72,9 @@ body, html {
 
 /* Gallery Picture Styling */
 .gallery-pic {
-    width: 100%; /* Scales with the column size */
-    max-width: 350px; /* Limits maximum size for larger screens */
-    aspect-ratio: 4 / 3; /* Ensures consistent picture ratio */
+    width: 100%; /* Take up the full width of the column */
+    max-width: 400px; /* Increased maximum size for larger images */
+    aspect-ratio: 4 / 3; /* Consistent picture ratio */
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
     object-fit: cover;
