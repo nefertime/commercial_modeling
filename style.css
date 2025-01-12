@@ -6,7 +6,7 @@ body, html {
     font-family: Arial, sans-serif;
     color: white;
     background-color: black;
-    scroll-behavior: smooth; /* Smooth scrolling for user experience */
+    scroll-behavior: smooth;
 }
 
 /* Container */
@@ -23,7 +23,7 @@ body, html {
     align-items: center;
     gap: 30px;
     max-width: 1200px;
-    margin-bottom: 30px; /* Reduce space before the gallery */
+    margin-bottom: 30px; /* Space between profile section and gallery */
 }
 
 /* Profile Picture Styling */
@@ -31,7 +31,6 @@ body, html {
     height: 800px; /* Main profile picture size */
     width: auto;
     border-radius: 0;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
     object-fit: cover;
 }
 
@@ -56,26 +55,25 @@ body, html {
 /* Separator Styling */
 .separator {
     width: 90%;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Minimal border */
-    margin: 20px 0; /* Smaller margin for less space */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle line */
+    margin: 20px 0; /* Minimal space around separator */
 }
 
 /* Gallery Section */
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three pictures per row */
-    gap: 10px; /* Smaller space between pictures */
-    max-width: 1200px; /* Align with the profile section */
+    gap: 20px; /* Minimal space between pictures */
+    max-width: 1200px; /* Align with profile and About Me section */
     width: 100%; /* Responsive scaling */
-    justify-items: center; /* Center images in their grid cells */
 }
 
 /* Gallery Picture Styling */
 .gallery-pic {
-    width: 100%; /* Take up the full width of the column */
-    max-width: 400px; /* Increased maximum size for larger images */
-    aspect-ratio: 4 / 3; /* Consistent picture ratio */
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
-    object-fit: cover;
+    height: 800px; /* Same height as the profile picture */
+    width: 100%; /* Scales based on column width */
+    max-width: 400px; /* Maintain balance within the grid */
+    border-radius: 0; /* No rounded corners */
+    object-fit: cover; /* Ensures proper image proportions */
+    box-shadow: none; /* Removed box shadow */
 }
