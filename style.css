@@ -55,7 +55,7 @@ body, html {
 /* Separator Styling */
 .separator {
     width: 90%;
-    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    border: 0.1px solid rgba(255, 255, 255, 0.2);
     margin: 50px 0; /* Adds space around the separator */
 }
 
