@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const prevBtn = document.querySelector(".prev");
     const nextBtn = document.querySelector(".next");
     const galleryImages = document.querySelectorAll(".gallery-pic");
-    const profilePic = document.querySelector(".profile-pic"); // Get the main profile picture
+    const profilePic = document.querySelector(".profile-pic");
 
     let currentIndex = 0; // Tracks the current image index
-    let isProfilePic = false; // Tracks if the main profile pic is opened
+    let isProfilePic = false; // Tracks if viewing the main profile picture
 
     if (!modal || !modalImage || !downloadBtn || !closeModal || galleryImages.length === 0) {
         console.error("❌ One or more elements are missing! Check HTML.");
@@ -29,9 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             modalImage.src = profilePic.src; // Set the main profile image
         }
+
         modal.style.display = "flex";
         downloadBtn.href = modalImage.src;
-        downloadBtn.setAttribute("download", modalImage.src.split('/').pop());
+
+        // Generate a meaningful file name
+        const fileName = modalImage.src.split('/').pop() || "image.jpg";
+        downloadBtn.setAttribute("download", fileName);
 
         // Hide navigation arrows if profile picture is opened
         prevBtn.style.display = isProfile ? "none" : "block";
@@ -45,14 +49,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Show the previous image
     function showPrevImage() {
-        if (isProfilePic) return; // Do nothing if profile pic is displayed
+        if (isProfilePic) return; // Do nothing if viewing the profile pic
         currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
         openModal(currentIndex);
     }
 
     // Show the next image
     function showNextImage() {
-        if (isProfilePic) return; // Do nothing if profile pic is displayed
+        if (isProfilePic) return; // Do nothing if viewing the profile pic
         currentIndex = (currentIndex + 1) % galleryImages.length;
         openModal(currentIndex);
     }
