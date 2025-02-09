@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const galleryImages = document.querySelectorAll(".gallery-pic");
     const profilePic = document.querySelector(".profile-pic");
 
-    let currentIndex = 0; // Tracks the current image index
-    let isProfilePic = false; // Tracks if viewing the main profile picture
+    let currentIndex = 0;
+    let isProfilePic = false;
 
     if (!modal || !modalImage || !downloadBtn || !closeModal || galleryImages.length === 0) {
         console.error("❌ One or more elements are missing! Check HTML.");
@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log(`✅ Found ${galleryImages.length} images in the gallery.`);
 
+    // Generate a custom filename based on image index
+    function getCustomFileName(index, isProfile) {
+        return isProfile ? "Alfred_Profile.jpg" : `Alfred${index + 1}.jpg`;
+    }
+
     // Open modal and set the clicked image
     function openModal(index, isProfile = false) {
         isProfilePic = isProfile;
@@ -27,17 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
             currentIndex = index;
             modalImage.src = galleryImages[currentIndex].src;
         } else {
-            modalImage.src = profilePic.src; // Set the main profile image
+            modalImage.src = profilePic.src;
         }
 
         modal.style.display = "flex";
+        const fileName = getCustomFileName(currentIndex, isProfile);
         downloadBtn.href = modalImage.src;
-
-        // Generate a meaningful file name
-        const fileName = modalImage.src.split('/').pop() || "image.jpg";
         downloadBtn.setAttribute("download", fileName);
 
-        // Hide navigation arrows if profile picture is opened
         prevBtn.style.display = isProfile ? "none" : "block";
         nextBtn.style.display = isProfile ? "none" : "block";
     }
@@ -49,14 +51,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Show the previous image
     function showPrevImage() {
-        if (isProfilePic) return; // Do nothing if viewing the profile pic
+        if (isProfilePic) return;
         currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
         openModal(currentIndex);
     }
 
     // Show the next image
     function showNextImage() {
-        if (isProfilePic) return; // Do nothing if viewing the profile pic
+        if (isProfilePic) return;
         currentIndex = (currentIndex + 1) % galleryImages.length;
         openModal(currentIndex);
     }
