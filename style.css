@@ -162,19 +162,28 @@ body, html {
 
 /* References Section - Align categories in a row */
 .references-section {
-    max-width: 1200px;
+    max-width: 900px; /* Limit width for better alignment */
     margin: 50px auto;
     text-align: center;
     display: flex;
     flex-wrap: wrap; /* Allows wrapping if needed */
     justify-content: center;
-    gap: 10px; /* Reduces space between categories */
+    gap: 15px; /* Reduces space between categories */
 }
 
 /* Reference Categories (Collapsible Sections) */
 .reference-category {
-    width: 30%; /* Reduce width so more fit in a row */
-    min-width: 250px; /* Prevents buttons from becoming too small */
+    width: 40%; /* Ensures two categories per row */
+    min-width: 220px; /* Prevents buttons from becoming too small */
+    text-align: center;
+}
+
+/* Make all collapsible buttons the same size */
+.collapsible {
+    width: 100%; /* Ensure buttons take full width of .reference-category */
+    padding: 15px;
+    text-align: center; /* Aligns text */
+    font-size: 18px;
 }
 
 /* Responsive: Stack categories on smaller screens */
@@ -184,7 +193,7 @@ body, html {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .reference-category {
         width: 100%; /* Full width on small screens */
     }
@@ -198,7 +207,7 @@ body, html {
     padding: 15px;
     width: 100%;
     border: none;
-    text-align: left;
+    text-align: center;
     outline: none;
     font-size: 20px;
     font-family: 'Orbitron', sans-serif;
