@@ -160,34 +160,38 @@ body, html {
     color: black;
 }
 
-/* References Section - Align categories in a row */
+/* References Section - Keep categories in one row */
 .references-section {
-    max-width: 900px; /* Limit width for better alignment */
+    max-width: 1000px; /* Adjust width to fit all categories */
     margin: 50px auto;
     text-align: center;
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping if needed */
+    flex-wrap: nowrap; /* Prevents wrapping */
     justify-content: center;
-    gap: 15px; /* Reduces space between categories */
+    gap: 5px; /* Reduce spacing between categories */
 }
 
 /* Reference Categories (Collapsible Sections) */
 .reference-category {
-    width: 40%; /* Ensures two categories per row */
-    min-width: 220px; /* Prevents buttons from becoming too small */
+    flex: 1; /* Ensures even spacing */
+    min-width: 200px; /* Prevents buttons from shrinking too much */
     text-align: center;
 }
 
 /* Make all collapsible buttons the same size */
 .collapsible {
-    width: 100%; /* Ensure buttons take full width of .reference-category */
-    padding: 15px;
-    text-align: center; /* Aligns text */
+    width: 100%;
+    padding: 12px;
+    text-align: center;
     font-size: 18px;
 }
 
 /* Responsive: Stack categories on smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    .references-section {
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    }
+
     .reference-category {
         width: 45%; /* Two per row on tablets */
     }
