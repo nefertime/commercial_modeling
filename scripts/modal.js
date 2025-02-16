@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ JavaScript is loaded and working!");
+    console.log("✅ Modal Script Loaded.");
 
     const modal = document.getElementById("imageModal");
     const modalImage = document.getElementById("modalImage");
@@ -13,13 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentIndex = 0;
     let isProfilePic = false;
 
-    if (!modal || !modalImage || !downloadBtn || !closeModal || galleryImages.length === 0) {
-        console.error("❌ One or more elements are missing! Check HTML.");
-        return;
-    }
-
-    console.log(`✅ Found ${galleryImages.length} images in the gallery.`);
-
     // Generate a custom filename based on image index
     function getCustomFileName(index, isProfile) {
         return isProfile ? "Alfred_Profile.jpg" : `Alfred${index + 1}.jpg`;
@@ -28,14 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Open modal and set the clicked image
     function openModal(index, isProfile = false) {
         isProfilePic = isProfile;
-        if (!isProfile) {
-            currentIndex = index;
-            modalImage.src = galleryImages[currentIndex].src;
-        } else {
-            modalImage.src = profilePic.src;
-        }
-
+        currentIndex = index;
+        modalImage.src = isProfile ? profilePic.src : galleryImages[currentIndex].src;
         modal.style.display = "flex";
+
         const fileName = getCustomFileName(currentIndex, isProfile);
         downloadBtn.href = modalImage.src;
         downloadBtn.setAttribute("download", fileName);
@@ -44,19 +33,16 @@ document.addEventListener("DOMContentLoaded", function () {
         nextBtn.style.display = isProfile ? "none" : "block";
     }
 
-    // Close modal function
     function closeModalFunction() {
         modal.style.display = "none";
     }
 
-    // Show the previous image
     function showPrevImage() {
         if (isProfilePic) return;
         currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
         openModal(currentIndex);
     }
 
-    // Show the next image
     function showNextImage() {
         if (isProfilePic) return;
         currentIndex = (currentIndex + 1) % galleryImages.length;
@@ -65,24 +51,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Click event listeners for each gallery image
     galleryImages.forEach((image, index) => {
-        image.addEventListener("click", function () {
-            openModal(index);
-        });
+        image.addEventListener("click", () => openModal(index));
     });
 
     // Click event for the main profile picture
-    profilePic.addEventListener("click", function () {
-        openModal(0, true);
-    });
+    profilePic.addEventListener("click", () => openModal(0, true));
 
     // Close modal when clicking close button
     closeModal.addEventListener("click", closeModalFunction);
 
     // Close modal when clicking outside the image
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            closeModalFunction();
-        }
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModalFunction();
     });
 
     // Add event listeners for next and previous buttons

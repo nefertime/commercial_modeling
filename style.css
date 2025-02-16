@@ -28,9 +28,10 @@ body, html {
 
 /* Profile Picture Styling */
 .profile-pic {
-    height: 800px;
+    max-height: 800px;
     width: auto;
     object-fit: cover;
+    cursor: pointer;
 }
 
 /* About Me Section */
@@ -65,6 +66,19 @@ body, html {
     gap: 20px;
     max-width: 1200px;
     width: 100%;
+}
+
+/* Responsive Gallery */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 /* Gallery Picture Styling */
@@ -123,6 +137,7 @@ body, html {
     font-weight: bold;
     border-radius: 5px;
 }
+
 /* Navigation Arrows */
 .prev, .next {
     position: absolute;
@@ -137,14 +152,77 @@ body, html {
     user-select: none;
 }
 
-.prev { left: 10px; }  /* Left arrow position */
-.next { right: 10px; } /* Right arrow position */
+.prev { left: 10px; }
+.next { right: 10px; }
 
 .prev:hover, .next:hover {
     background-color: rgba(255, 255, 255, 0.7);
     color: black;
 }
-/* Make profile picture clickable */
-.profile-pic {
+
+/* References Section */
+.references-section {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.references-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 36px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Collapsible Buttons */
+.collapsible {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
     cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+    transition: 0.4s;
+    border-radius: 5px;
+}
+
+.collapsible:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Indicate active collapsible section */
+.collapsible.active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Collapsible Content */
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: rgba(255, 255, 255, 0.05);
+    text-align: left;
+    padding: 0 15px;
+    border-radius: 5px;
+}
+
+.content ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.content ul li {
+    padding: 5px 0;
+    font-size: 18px;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content ul li:last-child {
+    border-bottom: none;
 }
