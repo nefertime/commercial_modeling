@@ -160,21 +160,38 @@ body, html {
     color: black;
 }
 
-/* References Section - Keep categories in one row */
+/* References Section - Center the title and align categories below */
 .references-section {
-    max-width: 1000px; /* Adjust width to fit all categories */
+    max-width: 1000px;
     margin: 50px auto;
     text-align: center;
     display: flex;
-    flex-wrap: nowrap; /* Prevents wrapping */
+    flex-direction: column; /* Keeps the title above the categories */
+    align-items: center;
+}
+
+/* References Title - Matches "About Me" */
+.references-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 36px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Categories Container - Aligns all buttons in a row below the title */
+.references-categories {
+    display: flex;
     justify-content: center;
-    gap: 5px; /* Reduce spacing between categories */
+    flex-wrap: nowrap; /* Prevents wrapping on large screens */
+    gap: 10px; /* Space between buttons */
+    width: 100%;
+    max-width: 1000px;
 }
 
 /* Reference Categories (Collapsible Sections) */
 .reference-category {
-    flex: 1; /* Ensures even spacing */
-    min-width: 200px; /* Prevents buttons from shrinking too much */
+    flex: 1;
+    min-width: 220px;
     text-align: center;
 }
 
@@ -186,9 +203,9 @@ body, html {
     font-size: 18px;
 }
 
-/* Responsive: Stack categories on smaller screens */
+/* Responsive: Stack categories below each other on smaller screens */
 @media (max-width: 900px) {
-    .references-section {
+    .references-categories {
         flex-wrap: wrap; /* Allow wrapping on smaller screens */
     }
 
