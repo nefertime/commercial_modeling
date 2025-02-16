@@ -162,16 +162,26 @@ body, html {
 
 /* References Section */
 .references-section {
-    max-width: 800px;
+    max-width: 1200px; /* Increased width for horizontal alignment */
     margin: 50px auto;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    justify-content: center;
+    gap: 20px;
 }
 
-.references-section h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 36px;
-    color: white;
-    margin-bottom: 20px;
+/* Reference Categories (Collapsible Sections) */
+.reference-category {
+    width: 45%; /* Two categories per row */
+    min-width: 300px; /* Prevents collapsing on smaller screens */
+}
+
+/* Responsive: Stack categories on smaller screens */
+@media (max-width: 768px) {
+    .reference-category {
+        width: 100%; /* Single column layout for smaller screens */
+    }
 }
 
 /* Collapsible Buttons */
@@ -210,6 +220,12 @@ body, html {
     border-radius: 5px;
 }
 
+/* Expanded collapsible content */
+.content.expanded {
+    max-height: 1000px; /* Adjust based on expected content size */
+}
+
+/* List Styling */
 .content ul {
     list-style-type: none;
     padding: 10px;
