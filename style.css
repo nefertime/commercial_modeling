@@ -166,7 +166,7 @@ body, html {
     margin: 50px auto;
     text-align: center;
     display: flex;
-    flex-direction: column; /* Keeps the title above the categories */
+    flex-direction: column;
     align-items: center;
 }
 
@@ -182,8 +182,8 @@ body, html {
 .references-categories {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap; /* Prevents wrapping on large screens */
-    gap: 10px; /* Space between buttons */
+    flex-wrap: nowrap;
+    gap: 10px;
     width: 100%;
     max-width: 1000px;
 }
@@ -206,17 +206,17 @@ body, html {
 /* Responsive: Stack categories below each other on smaller screens */
 @media (max-width: 900px) {
     .references-categories {
-        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        flex-wrap: wrap;
     }
 
     .reference-category {
-        width: 45%; /* Two per row on tablets */
+        width: 45%;
     }
 }
 
 @media (max-width: 600px) {
     .reference-category {
-        width: 100%; /* Full width on small screens */
+        width: 100%;
     }
 }
 
@@ -258,7 +258,7 @@ body, html {
 
 /* Expanded collapsible content */
 .content.expanded {
-    max-height: 1000px; /* Adjust based on expected content size */
+    max-height: 1000px;
 }
 
 /* List Styling */
@@ -277,4 +277,56 @@ body, html {
 
 .content ul li:last-child {
     border-bottom: none;
+}
+
+/* Bio Overlay (Mobile Optimization) */
+.bio-overlay {
+    display: none;
+}
+
+/* Show the bio overlay only on mobile */
+@media (max-width: 768px) {
+    .profile-image-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent overlay */
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Close button (X) */
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .bio-content {
+        max-width: 80%;
+    }
+
+    /* Hide bio overlay when closed */
+    .bio-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
