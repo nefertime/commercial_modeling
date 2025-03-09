@@ -240,51 +240,7 @@ body, html {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Indicate active collapsible section */
-.collapsible.active {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Collapsible Content */
-.content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    background-color: rgba(255, 255, 255, 0.05);
-    text-align: left;
-    padding: 0 15px;
-    border-radius: 5px;
-}
-
-/* Expanded collapsible content */
-.content.expanded {
-    max-height: 1000px;
-}
-
-/* List Styling */
-.content ul {
-    list-style-type: none;
-    padding: 10px;
-    margin: 0;
-}
-
-.content ul li {
-    padding: 5px 0;
-    font-size: 18px;
-    color: white;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.content ul li:last-child {
-    border-bottom: none;
-}
-
 /* Bio Overlay (Mobile Optimization) */
-.bio-overlay {
-    display: none;
-}
-
-/* Show the bio overlay only on mobile */
 @media (max-width: 768px) {
     .profile-image-container {
         position: relative;
@@ -293,13 +249,14 @@ body, html {
         align-items: center;
     }
 
+    /* Bio Overlay (Centered, Semi-Transparent) */
     .bio-overlay {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent overlay */
+        top: 50%;
+        left: 50%;
+        width: 85%;
+        max-width: 400px;
+        background: rgba(0, 0, 0, 0.6); /* More transparent but readable */
         color: white;
         display: flex;
         flex-direction: column;
@@ -307,26 +264,49 @@ body, html {
         align-items: center;
         padding: 20px;
         text-align: center;
-        transition: opacity 0.3s ease-in-out;
+        border-radius: 15px;
+        transform: translate(-50%, -50%);
+        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
     }
 
-    /* Close button (X) */
+    /* Close button (Bigger, easier to click) */
     .close-btn {
         position: absolute;
-        top: 15px;
-        right: 20px;
-        font-size: 24px;
+        top: -10px;
+        right: -10px;
+        font-size: 30px;
         cursor: pointer;
         color: white;
+        background: rgba(255, 255, 255, 0.3); /* Slight transparency */
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
     }
 
-    .bio-content {
-        max-width: 80%;
+    .close-btn:hover {
+        background: rgba(255, 255, 255, 0.5);
     }
 
-    /* Hide bio overlay when closed */
-    .bio-overlay.hidden {
-        opacity: 0;
-        pointer-events: none;
+    /* Adjust text size for readability */
+    .bio-content h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .bio-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 0 10px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Hide the desktop bio on mobile */
+    #desktopBio {
+        display: none;
     }
 }
