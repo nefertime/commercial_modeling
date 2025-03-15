@@ -13,7 +13,7 @@
         <div class="profile-section">
             <div class="profile-image-container">
                 <img src="assets/Alfred Studio 2.jpg" alt="Portrait of Actor" class="profile-pic">
-                
+
                 <!-- Bio overlay (Only on mobile) -->
                 <div class="bio-overlay" id="bioOverlay">
                     <span class="close-btn" id="closeBio">&times;</span> <!-- Close button -->
@@ -53,19 +53,17 @@
         <!-- Separator -->
         <hr class="separator">
 
-        <!-- References Section -->
+        <!-- References Section (Loaded Dynamically) -->
         <div id="references-container"></div>
+    </div>
 
-        <!-- Contact Section -->
-        <div class="contact-section">
-            <h2>Contact Me</h2>
-            <form id="contact-form">
-                <input type="text" id="name" name="name" placeholder="Your name" required>
-                <input type="email" id="email" name="email" placeholder="Your email" required>
-                <textarea id="message" name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <span class="prev">&#10094;</span>  <!-- Left Arrow -->
+        <img id="modalImage" class="modal-content">
+        <span class="next">&#10095;</span>  <!-- Right Arrow -->
+        <a id="downloadBtn" class="download-btn" download>Download</a>
     </div>
 
     <!-- JavaScript files -->

@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log(`✅ Found ${galleryImages.length} images in the gallery.`);
 
-    // Check if the user is on mobile
+    // Check if the user is on mobile (optional safety check)
     function isMobile() {
         return window.innerWidth <= 768;
     }
@@ -128,13 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         collapsible.addEventListener("click", function () {
             this.classList.toggle("active");
             let content = this.nextElementSibling;
-
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null; // Collapse
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px"; // Expand
-                this.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
+            content.classList.toggle("expanded");
         });
     });
 
