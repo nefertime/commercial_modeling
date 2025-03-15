@@ -26,7 +26,7 @@ body, html {
     margin-bottom: 30px;
 }
 
-/* Profile Picture Styling */
+/* Profile Picture */
 .profile-pic {
     max-height: 800px;
     width: auto;
@@ -34,279 +34,81 @@ body, html {
     cursor: pointer;
 }
 
-/* About Me Section */
-.about-me {
-    max-width: 600px;
-    text-align: left;
-}
-
-.about-me h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 48px;
-    color: white;
-    margin-bottom: 20px;
-}
-
-.about-me p {
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-/* Separator Styling */
-.separator {
-    width: 90%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin: 20px 0;
-}
-
-/* Gallery Section */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
-}
-
-/* Responsive Gallery */
+/* Bio Overlay (Mobile) */
 @media (max-width: 768px) {
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
+    .bio-overlay {
+        width: 90%;
+        max-width: 350px;
+        padding: 15px;
+    }
+
+    .close-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
     }
 }
 
-@media (max-width: 480px) {
-    .gallery {
-        grid-template-columns: repeat(1, 1fr);
+/* Gallery Images (Mobile) */
+@media (max-width: 768px) {
+    .gallery-pic {
+        max-width: 100%;
+        width: auto;
+        height: auto;
     }
 }
 
-/* Gallery Picture Styling */
-.gallery-pic {
-    height: auto;
-    max-height: 800px;
-    width: 100%;
-    max-width: 400px;
-    object-fit: scale-down;
-    cursor: pointer;
-}
-
-/* Modal Styling */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-}
-
-/* Modal Content (Enlarged Image) */
-.modal-content {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 5px;
-}
-
-/* Close Button */
-.close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Download Button */
-.download-btn {
-    display: block;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
+/* References Categories */
+.collapsible {
+    background-color: white;
     color: black;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
+    border: 1px solid black;
+    font-size: 18px;
+    padding: 15px;
     border-radius: 5px;
 }
 
-/* Navigation Arrows */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    user-select: none;
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.prev:hover, .next:hover {
-    background-color: rgba(255, 255, 255, 0.7);
-    color: black;
-}
-
-/* References Section - Center the title and align categories below */
-.references-section {
-    max-width: 1000px;
-    margin: 50px auto;
+/* Contact Form */
+.contact-section {
     text-align: center;
+    margin-top: 50px;
+}
+
+.contact-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    color: white;
+}
+
+#contact-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-/* References Title - Matches "About Me" */
-.references-section h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 36px;
-    color: white;
-    margin-bottom: 20px;
-}
-
-/* Categories Container - Aligns all buttons in a row below the title */
-.references-categories {
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
     gap: 10px;
-    width: 100%;
-    max-width: 1000px;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-/* Reference Categories (Collapsible Sections) */
-.reference-category {
-    flex: 1;
-    min-width: 220px;
-    text-align: center;
-}
-
-/* Make all collapsible buttons the same size */
-.collapsible {
-    width: 100%;
-    padding: 12px;
-    text-align: center;
-    font-size: 18px;
-}
-
-/* Responsive: Stack categories below each other on smaller screens */
-@media (max-width: 900px) {
-    .references-categories {
-        flex-wrap: wrap;
-    }
-
-    .reference-category {
-        width: 45%;
-    }
-}
-
-@media (max-width: 600px) {
-    .reference-category {
-        width: 100%;
-    }
-}
-
-/* Collapsible Buttons */
-.collapsible {
-    background-color: rgba(245, 230, 230, 0.102);
-    color: rgb(117, 61, 61);
-    cursor: pointer;
-    padding: 15px;
-    width: 100%;
-    border: none;
-    text-align: center;
-    outline: none;
-    font-size: 20px;
-    font-family: 'Orbitron', sans-serif;
-    transition: 0.4s;
+#contact-form input, 
+#contact-form textarea {
+    padding: 10px;
+    border: 1px solid white;
+    background: black;
+    color: white;
+    font-size: 16px;
     border-radius: 5px;
 }
 
-.collapsible:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+#contact-form button {
+    background-color: white;
+    color: black;
+    padding: 12px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-/* Bio Overlay (Mobile Optimization) */
-@media (max-width: 768px) {
-    .profile-image-container {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Bio Overlay (Centered, Semi-Transparent) */
-    .bio-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 85%;
-        max-width: 400px;
-        background: rgba(0, 0, 0, 0.6); /* More transparent but readable */
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        text-align: center;
-        border-radius: 15px;
-        transform: translate(-50%, -50%);
-        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-    }
-
-    /* Close button (Bigger, easier to click) */
-    .close-btn {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        font-size: 30px;
-        cursor: pointer;
-        color: white;
-        background: rgba(255, 255, 255, 0.3); /* Slight transparency */
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-    }
-
-    .close-btn:hover {
-        background: rgba(255, 255, 255, 0.5);
-    }
-
-    /* Adjust text size for readability */
-    .bio-content h1 {
-        font-size: 24px;
-        margin-bottom: 10px;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
-    .bio-content p {
-        font-size: 16px;
-        line-height: 1.6;
-        padding: 0 10px;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Hide the desktop bio on mobile */
-    #desktopBio {
-        display: none;
-    }
+#contact-form button:hover {
+    background-color: gray;
 }
