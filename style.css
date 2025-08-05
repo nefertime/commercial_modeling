@@ -722,3 +722,55 @@ body, html {
         font-size: 11px;
     }
 }
+
+/* Thank you message styling */
+.thank-you-message {
+    background: rgba(40, 167, 69, 0.2);
+    border: 1px solid #28a745;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.thank-you-message h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.thank-you-message p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Fade in animation for thank you message */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile thank you message */
+@media (max-width: 768px) {
+    .thank-you-message {
+        padding: 15px;
+        margin-top: 15px;
+    }
+    
+    .thank-you-message h3 {
+        font-size: 20px;
+    }
+    
+    .thank-you-message p {
+        font-size: 14px;
+    }
+}

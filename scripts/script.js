@@ -153,3 +153,66 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("✅ Collapsible reference sections initialized.");
 });
+
+// Handle form submission with AJAX - show thank you message below form
+document.addEventListener("DOMContentLoaded", function() {
+    const contactForm = document.querySelector('.contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('.submit-btn');
+            
+            // Remove any existing thank you message
+            const existingMessage = document.querySelector('.thank-you-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            // Change button text during submission
+            submitBtn.textContent = 'SENDING...';
+            submitBtn.disabled = true;
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success - show thank you message below form
+                    const thankYouMessage = document.createElement('div');
+                    thankYouMessage.className = 'thank-you-message';
+                    thankYouMessage.innerHTML = `
+                        <h3>Thank You!</h3>
+                        <p>Your message has been sent successfully. I'll get back to you soon!</p>
+                    `;
+                    
+                    // Insert after the contact form
+                    this.parentNode.appendChild(thankYouMessage);
+                    
+                    // Reset form and button
+                    this.reset();
+                    submitBtn.textContent = 'SEND MESSAGE';
+                    submitBtn.disabled = false;
+                    
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                // Error handling
+                submitBtn.textContent = 'ERROR - TRY AGAIN';
+                submitBtn.disabled = false;
+                
+                setTimeout(() => {
+                    submitBtn.textContent = 'SEND MESSAGE';
+                }, 3000);
+            });
+        });
+    }
+});
