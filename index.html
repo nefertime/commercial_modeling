@@ -28,6 +28,8 @@
                             captivating performances in Finnish TV shows and films. Known for bringing 
                             characters to life with charisma, depth, and dedication.
                         </p>
+                        <br>
+                        <a href="#contact-form" class="contact-link-mobile">Let's Work Together</a>
                     </div>
                 </div>
             </div>
@@ -36,9 +38,9 @@
             <div class="about-me" id="desktopBio">
                 <h1>Alfred Leppänen</h1>
                 <p>
-                    Dynamic and versatile actor with an extensive career spanning commercial modeling, 
-                    captivating performances in Finnish TV shows and films, and memorable stage roles. 
-                    Known for bringing characters to life with charisma, depth, and dedication.
+                    From commercial shoots to Finnish TV drama, I bring characters to life with that perfect mix of intensity and charm. Whether I'm selling you Finland's finest vodka or diving deep into complex roles on screen, I'm all about finding the truth in every moment. Check out the gallery below for a taste of my work, and hit those reference buttons if you want the full story of my journey through Finland's entertainment scene.
+                    <br>
+                <a href="#contact-form" class="contact-link">Let's Work Together</a>
                 </p>
             </div>
         </div>
@@ -59,12 +61,46 @@
 
         <!-- References Section (Loaded Dynamically) -->
         <div id="references-container"></div>
+
+        <!-- Separator -->
+        <hr class="separator">
+
+        <!-- Contact Form Section -->
+        <div class="contact-section" id="contact-form">
+            <h2>Let's Work Together</h2>
+            <p>Ready to bring your next project to life? Get in touch and let's discuss how we can create something amazing together.</p>
+            
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Company/Production</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Tell me about your project *</label>
+                    <textarea id="message" name="message" rows="6" required placeholder="Describe your project, the role, timeline, and any other relevant details..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
     </div>
 
     <!-- Image Modal -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
-        <span class="prev">&#10094;</span>  <!-- Left Arrow -->
+        <span class="prev">&#10094;</span>  <!-- Le ft Arrow -->
         <img id="modalImage" class="modal-content">
         <span class="next">&#10095;</span>  <!-- Right Arrow -->
         <a id="downloadBtn" class="download-btn" download>Download</a>
