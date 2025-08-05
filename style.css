@@ -121,23 +121,28 @@ body, html {
     box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
 }
 
-/* Desktop: Vertical Name Text - Similar to mobile */
+/* Desktop: Vertical Name Text - Locked to exact position */
 @media (min-width: 769px) {
-    .about-me::after {
+    .profile-image-container::after {
         content: "ALFRED";
         position: absolute;
-        right: 400px; /* Moved further right to avoid overlap */
-        top: 25%;
+        left: 310px; /* Position to the left of the image container */
+        top: 38%;
         transform: translateY(-50%) rotate(90deg);
         transform-origin: center center;
         font-family: 'Orbitron', sans-serif;
-        font-size: 100px; /* Slightly smaller */
+        font-size: 100px;
         font-weight: 700;
         color: #ff4444;
-        letter-spacing: 3px; /* Reduced spacing */
+        letter-spacing: 3px;
         text-transform: uppercase;
         z-index: 5;
         text-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
+        white-space: nowrap;
+    }
+    
+    .profile-image-container {
+        position: relative;
     }
 }
 
