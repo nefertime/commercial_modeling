@@ -320,6 +320,18 @@ body, html {
     color: #ff6666; /* Slightly lighter red on hover */
 }
 
+/* Reference Lists - Remove bullet points */
+.reference-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reference-category li {
+    padding: 5px 0;
+    text-align: center;
+}
+
 /* Bio Overlay - Hide on desktop by default */
 .bio-overlay {
     display: none; /* Hidden by default on all screen sizes */
