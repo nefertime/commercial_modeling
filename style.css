@@ -85,6 +85,17 @@ body, html {
     width: 100%;
 }
 
+/* Desktop: Ensure gallery is always visible */
+@media (min-width: 769px) {
+    .gallery {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        width: 100%;
+    }
+}
+
 /* Responsive Gallery */
 @media (max-width: 768px) {
     .gallery {
@@ -106,6 +117,19 @@ body, html {
     max-width: 400px;
     object-fit: scale-down;
     cursor: pointer;
+}
+
+/* Desktop: Ensure gallery pics are visible and properly sized */
+@media (min-width: 769px) {
+    .gallery-pic {
+        height: auto;
+        max-height: 800px;
+        width: 100%;
+        max-width: 400px;
+        object-fit: scale-down;
+        cursor: pointer;
+        display: block !important;
+    }
 }
 
 /* Mobile: Ensure consistent sizing with profile pic */
@@ -369,8 +393,6 @@ body, html {
         box-shadow: 0px 4px 15px rgba(255, 68, 68, 0.2);
         border: 1px solid rgba(255, 68, 68, 0.3);
     }
-
-
 
     /* Adjust text size for readability - No name, just description */
     .bio-content p {
