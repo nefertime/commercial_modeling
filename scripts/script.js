@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Bio overlay elements
     const bioOverlay = document.getElementById("bioOverlay");
-    const closeBio = document.getElementById("closeBio");
+    const infoButton = document.getElementById("infoButton");
 
     let currentIndex = 0;
     let isProfilePic = false;
@@ -30,16 +30,25 @@ document.addEventListener("DOMContentLoaded", function () {
         return window.innerWidth <= 768;
     }
 
-    // Show bio overlay only on mobile
-    if (isMobile() && !sessionStorage.getItem("bioClosed")) {
-        bioOverlay.style.display = "flex";
+    // Toggle bio overlay when clicking info button (mobile only)
+    if (infoButton) {
+        infoButton.addEventListener("click", function () {
+            if (bioOverlay.style.display === "flex") {
+                bioOverlay.style.display = "none";
+            } else {
+                bioOverlay.style.display = "flex";
+            }
+        });
     }
 
-    // Close bio overlay when clicking the close button
-    closeBio.addEventListener("click", function () {
-        bioOverlay.style.display = "none";
-        sessionStorage.setItem("bioClosed", "true"); // Store user preference for session
-    });
+    // Close bio overlay when clicking outside of it
+    if (bioOverlay) {
+        bioOverlay.addEventListener("click", function (event) {
+            if (event.target === bioOverlay) {
+                bioOverlay.style.display = "none";
+            }
+        });
+    }
 
     // Generate a custom filename based on image index
     function getCustomFileName(index, isProfile) {

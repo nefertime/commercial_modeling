@@ -275,6 +275,16 @@ body, html {
     display: none; /* Hidden by default on all screen sizes */
 }
 
+/* Info Button - Blinking button to open bio */
+.info-button {
+    display: none; /* Hidden by default */
+}
+
+/* Vertical Name Text */
+.vertical-name {
+    display: none; /* Hidden by default */
+}
+
 /* Bio Overlay (Mobile Optimization) */
 @media (max-width: 768px) {
     .profile-image-container {
@@ -284,60 +294,90 @@ body, html {
         align-items: center;
     }
 
-    /* Bio Overlay (Positioned lower on image) - Only show on mobile */
-    .bio-overlay {
+    /* Info Button - Positioned relative to the info box when it opens */
+    .info-button {
         position: absolute;
-        top: 75%; /* Moved down from 50% to 75% */
-        left: 50%;
-        width: 75%; /* Reduced from 85% to 75% */
-        max-width: 350px; /* Reduced from 400px to 350px */
-        background: rgba(0, 0, 0, 0.6); /* More transparent but readable */
-        color: white;
-        display: flex; /* Only display on mobile */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 15px; /* Reduced from 20px to 15px */
-        text-align: center;
-        border-radius: 15px;
-        transform: translate(-50%, -50%);
-        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-    }
-
-    /* Close button (Bigger, easier to click) */
-    .close-btn {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        font-size: 30px;
-        cursor: pointer;
-        color: white;
-        background: rgba(255, 255, 255, 0.3); /* Slight transparency */
+        left: 5px;
+        top: 85%;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 68, 68, 0.8);
+        border: 2px solid #ff4444;
         border-radius: 50%;
-        width: 45px;
-        height: 45px;
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+        font-size: 18px;
+        color: white;
         font-weight: bold;
+        animation: pulse 2s infinite;
+        z-index: 10;
     }
 
-    .close-btn:hover {
-        background: rgba(255, 255, 255, 0.5);
+    /* Blinking animation */
+    @keyframes pulse {
+        0% { 
+            box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7);
+            opacity: 1;
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(255, 68, 68, 0);
+            opacity: 0.8;
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(255, 68, 68, 0);
+            opacity: 1;
+        }
     }
 
-    /* Adjust text size for readability */
-    .bio-content h1 {
-        font-family: 'Orbitron', sans-serif; /* Same font as desktop */
-        font-size: 20px; /* Reduced from 24px */
-        margin-bottom: 8px; /* Reduced from 10px */
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    /* Vertical Name Text on the right - In the empty space, positioned properly */
+    .vertical-name {
+        position: absolute;
+        right: -90px; /* Positioned in the empty right space */
+        top: 40%; /* Moved up to start from head area */
+        transform: translateY(-50%) rotate(90deg);
+        transform-origin: center center; /* Better rotation anchor */
+        font-family: 'Orbitron', sans-serif;
+        font-size: 46px; /* Slightly smaller to fit better */
+        font-weight: 700;
+        color: #ff4444;
+        letter-spacing: 6px; /* Adjusted spacing */
+        text-transform: uppercase;
+        display: block;
+        z-index: 5;
+        text-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
     }
 
+    /* Bio Overlay (Positioned lower and contained within image) - Smaller and no name */
+    .bio-overlay {
+        position: absolute;
+        top: 80%; /* Moved lower */
+        left: 40%; /* Adjusted to keep within image bounds */
+        width: 55%; /* Made smaller to fit */
+        max-width: 240px; /* Reduced further */
+        background: rgba(0, 0, 0, 0.7); /* Slightly more opaque */
+        color: white;
+        display: none; /* Hidden by default, shown via JavaScript */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 8px; /* Even smaller padding */
+        text-align: center;
+        border-radius: 8px; /* Smaller border radius */
+        transform: translate(-50%, -50%);
+        box-shadow: 0px 4px 15px rgba(255, 68, 68, 0.2);
+        border: 1px solid rgba(255, 68, 68, 0.3);
+    }
+
+
+
+    /* Adjust text size for readability - No name, just description */
     .bio-content p {
-        font-size: 14px; /* Reduced from 16px */
-        line-height: 1.4; /* Reduced from 1.6 for more compact text */
-        padding: 0 8px; /* Reduced from 10px */
+        font-size: 11px; /* Even smaller text to fit in smaller box */
+        line-height: 1.2; /* More compact */
+        padding: 0;
+        margin: 0;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
 

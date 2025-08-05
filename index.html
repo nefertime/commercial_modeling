@@ -13,20 +13,23 @@
         <div class="profile-section">
             <div class="profile-image-container">
                 <img src="assets/Alfred Studio 2.jpg" alt="Portrait of Actor" class="profile-pic">
-
-                <!-- Bio overlay (Only on mobile) -->
-                <div class="bio-overlay" id="bioOverlay">
-                    <span class="close-btn" id="closeBio">&times;</span> <!-- Close button -->
+                
+                <!-- NEW: Info button (blinking) -->
+                <div class="info-button" id="infoButton">i</div>
+                
+                <!-- NEW: Vertical name text -->
+                <div class="vertical-name">ALFRED</div>
+            
+                <!-- Bio overlay (now hidden by default) -->
+                <div class="bio-overlay" id="bioOverlay" style="display: none;">
                     <div class="bio-content">
-                        <h1>Alfred Leppänen</h1>
                         <p>
                             Dynamic and versatile actor with an extensive career spanning commercial modeling, 
-                            captivating performances in Finnish TV shows and films, and memorable stage roles. 
-                            Known for bringing characters to life with charisma, depth, and dedication.
+                            captivating performances in Finnish TV shows and films. Known for bringing 
+                            characters to life with charisma, depth, and dedication.
                         </p>
                     </div>
                 </div>
-            </div>
 
             <!-- Static Bio Section (Only for Desktop) -->
             <div class="about-me" id="desktopBio">
