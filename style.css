@@ -55,6 +55,12 @@ body, html {
 .about-me {
     max-width: 600px;
     text-align: left;
+    position: relative; /* For positioning vertical name */
+    background: rgba(0, 0, 0, 0.7); /* Match mobile bio styling */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(255, 68, 68, 0.2);
+    border: 1px solid rgba(255, 68, 68, 0.3);
 }
 
 .about-me h1 {
@@ -67,6 +73,26 @@ body, html {
 .about-me p {
     font-size: 18px;
     line-height: 1.8;
+}
+
+/* Desktop: Vertical Name Text - Similar to mobile */
+@media (min-width: 769px) {
+    .about-me::after {
+        content: "ALFRED";
+        position: absolute;
+        right: -60px;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+        transform-origin: center center;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: #ff4444;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        z-index: 5;
+        text-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
+    }
 }
 
 /* Separator Styling */
