@@ -34,6 +34,23 @@ body, html {
     cursor: pointer;
 }
 
+/* Mobile: Make profile pic same size as gallery images */
+@media (max-width: 768px) {
+    .profile-section {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    .profile-pic {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
+    }
+}
+
 /* About Me Section */
 .about-me {
     max-width: 600px;
@@ -89,6 +106,17 @@ body, html {
     max-width: 400px;
     object-fit: scale-down;
     cursor: pointer;
+}
+
+/* Mobile: Ensure consistent sizing with profile pic */
+@media (max-width: 768px) {
+    .gallery-pic {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
+    }
 }
 
 /* Modal Styling */
