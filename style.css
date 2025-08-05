@@ -80,15 +80,15 @@ body, html {
     .about-me::after {
         content: "ALFRED";
         position: absolute;
-        right: -60px;
+        right: -80px; /* Moved further right to avoid overlap */
         top: 50%;
         transform: translateY(-50%) rotate(90deg);
         transform-origin: center center;
         font-family: 'Orbitron', sans-serif;
-        font-size: 36px;
+        font-size: 32px; /* Slightly smaller */
         font-weight: 700;
         color: #ff4444;
-        letter-spacing: 4px;
+        letter-spacing: 3px; /* Reduced spacing */
         text-transform: uppercase;
         z-index: 5;
         text-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
@@ -104,22 +104,12 @@ body, html {
 
 /* Gallery Section */
 .gallery {
-    display: grid;
+    display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 1200px;
     width: 100%;
-}
-
-/* Desktop: Ensure gallery is always visible */
-@media (min-width: 769px) {
-    .gallery {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        max-width: 1200px;
-        width: 100%;
-    }
+    visibility: visible;
 }
 
 /* Responsive Gallery */
@@ -135,27 +125,29 @@ body, html {
     }
 }
 
+/* Desktop: Force gallery to show with highest specificity */
+@media screen and (min-width: 769px) {
+    .container .gallery {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+        max-width: 1200px !important;
+        width: 100% !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
 /* Gallery Picture Styling */
 .gallery-pic {
-    height: auto;
+    height: auto !important;
     max-height: 800px;
-    width: 100%;
+    width: 100% !important;
     max-width: 400px;
     object-fit: scale-down;
     cursor: pointer;
-}
-
-/* Desktop: Ensure gallery pics are visible and properly sized */
-@media (min-width: 769px) {
-    .gallery-pic {
-        height: auto;
-        max-height: 800px;
-        width: 100%;
-        max-width: 400px;
-        object-fit: scale-down;
-        cursor: pointer;
-        display: block !important;
-    }
+    display: block !important;
+    visibility: visible !important;
 }
 
 /* Mobile: Ensure consistent sizing with profile pic */
@@ -166,6 +158,21 @@ body, html {
         height: auto;
         max-height: 400px;
         object-fit: cover;
+    }
+}
+
+/* Desktop: Force gallery pics to show with highest specificity */
+@media screen and (min-width: 769px) {
+    .container .gallery .gallery-pic {
+        height: auto !important;
+        max-height: 800px !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        object-fit: scale-down !important;
+        cursor: pointer !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 }
 
