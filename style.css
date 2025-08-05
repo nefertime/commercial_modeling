@@ -289,15 +289,15 @@ body, html {
         position: absolute;
         top: 75%; /* Moved down from 50% to 75% */
         left: 50%;
-        width: 85%;
-        max-width: 400px;
+        width: 75%; /* Reduced from 85% to 75% */
+        max-width: 350px; /* Reduced from 400px to 350px */
         background: rgba(0, 0, 0, 0.6); /* More transparent but readable */
         color: white;
         display: flex; /* Only display on mobile */
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 20px;
+        padding: 15px; /* Reduced from 20px to 15px */
         text-align: center;
         border-radius: 15px;
         transform: translate(-50%, -50%);
@@ -328,15 +328,16 @@ body, html {
 
     /* Adjust text size for readability */
     .bio-content h1 {
-        font-size: 24px;
-        margin-bottom: 10px;
+        font-family: 'Orbitron', sans-serif; /* Same font as desktop */
+        font-size: 20px; /* Reduced from 24px */
+        margin-bottom: 8px; /* Reduced from 10px */
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     .bio-content p {
-        font-size: 16px;
-        line-height: 1.6;
-        padding: 0 10px;
+        font-size: 14px; /* Reduced from 16px */
+        line-height: 1.4; /* Reduced from 1.6 for more compact text */
+        padding: 0 8px; /* Reduced from 10px */
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
 
