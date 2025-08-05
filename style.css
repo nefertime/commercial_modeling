@@ -80,12 +80,12 @@ body, html {
     .about-me::after {
         content: "ALFRED";
         position: absolute;
-        right: 380px; /* Moved further right to avoid overlap */
-        top: 28%;
+        right: -80px; /* Moved further right to avoid overlap */
+        top: 50%;
         transform: translateY(-50%) rotate(90deg);
         transform-origin: center center;
         font-family: 'Orbitron', sans-serif;
-        font-size: 99px; /* Slightly smaller */
+        font-size: 32px; /* Slightly smaller */
         font-weight: 700;
         color: #ff4444;
         letter-spacing: 3px; /* Reduced spacing */
@@ -305,7 +305,7 @@ body, html {
     }
 }
 
-/* Collapsible Buttons - Updated with bright red color */
+/* Collapsible Buttons - Updated with bright red color and info button */
 .collapsible {
     background-color: rgba(245, 230, 230, 0.102);
     color: #ff4444; /* Bright red color instead of dark red */
@@ -320,6 +320,10 @@ body, html {
     font-weight: bold; /* Make it bold */
     transition: 0.4s;
     border-radius: 5px;
+    position: relative; /* For positioning info button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .collapsible:hover {
@@ -327,7 +331,44 @@ body, html {
     color: #ff6666; /* Slightly lighter red on hover */
 }
 
-/* Reference Lists - Remove bullet points */
+/* Info button inside each category header */
+.collapsible::after {
+    content: "i";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    background: rgba(255, 68, 68, 0.8);
+    border: 2px solid #ff4444;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+/* Blinking animation for reference info buttons */
+@keyframes pulse {
+    0% { 
+        box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7);
+        opacity: 1;
+    }
+    70% {
+        box-shadow: 0 0 0 5px rgba(255, 68, 68, 0);
+        opacity: 0.8;
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 68, 68, 0);
+        opacity: 1;
+    }
+}
+
+/* Reference Lists - Remove bullet points and hide by default */
 .reference-category ul {
     list-style: none;
     padding: 0;
@@ -337,6 +378,23 @@ body, html {
 .reference-category li {
     padding: 5px 0;
     text-align: center;
+}
+
+/* Content sections - hidden by default, smooth transition */
+.reference-category .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 5px 5px;
+    margin-top: 2px;
+}
+
+/* When expanded */
+.reference-category .content.expanded {
+    max-height: 500px; /* Adjust based on content */
+    padding: 10px;
+    transition: max-height 0.3s ease-in;
 }
 
 /* Bio Overlay - Hide on desktop by default */

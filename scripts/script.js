@@ -135,8 +135,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // Expand/Collapse References Section
     collapsibles.forEach((collapsible) => {
         collapsible.addEventListener("click", function () {
-            this.classList.toggle("active");
+            // Toggle the expanded class on the content
             let content = this.nextElementSibling;
+            
+            // Close all other sections first (accordion behavior)
+            collapsibles.forEach((otherCollapsible) => {
+                if (otherCollapsible !== this) {
+                    let otherContent = otherCollapsible.nextElementSibling;
+                    otherContent.classList.remove("expanded");
+                }
+            });
+            
+            // Toggle current section
             content.classList.toggle("expanded");
         });
     });
