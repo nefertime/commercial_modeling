@@ -256,10 +256,10 @@ body, html {
         align-items: center;
     }
 
-    /* Bio Overlay (Centered, Semi-Transparent) - Only show on mobile */
+    /* Bio Overlay (Positioned lower on image) - Only show on mobile */
     .bio-overlay {
         position: absolute;
-        top: 50%;
+        top: 75%; /* Moved down from 50% to 75% */
         left: 50%;
         width: 85%;
         max-width: 400px;
