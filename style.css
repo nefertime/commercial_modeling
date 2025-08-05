@@ -220,10 +220,10 @@ body, html {
     }
 }
 
-/* Collapsible Buttons */
+/* Collapsible Buttons - Updated with bright red color */
 .collapsible {
     background-color: rgba(245, 230, 230, 0.102);
-    color: rgb(117, 61, 61);
+    color: #ff4444; /* Bright red color instead of dark red */
     cursor: pointer;
     padding: 15px;
     width: 100%;
@@ -232,12 +232,19 @@ body, html {
     outline: none;
     font-size: 20px;
     font-family: 'Orbitron', sans-serif;
+    font-weight: bold; /* Make it bold */
     transition: 0.4s;
     border-radius: 5px;
 }
 
 .collapsible:hover {
     background-color: rgba(255, 255, 255, 0.3);
+    color: #ff6666; /* Slightly lighter red on hover */
+}
+
+/* Bio Overlay - Hide on desktop by default */
+.bio-overlay {
+    display: none; /* Hidden by default on all screen sizes */
 }
 
 /* Bio Overlay (Mobile Optimization) */
@@ -249,7 +256,7 @@ body, html {
         align-items: center;
     }
 
-    /* Bio Overlay (Centered, Semi-Transparent) */
+    /* Bio Overlay (Centered, Semi-Transparent) - Only show on mobile */
     .bio-overlay {
         position: absolute;
         top: 50%;
@@ -258,7 +265,7 @@ body, html {
         max-width: 400px;
         background: rgba(0, 0, 0, 0.6); /* More transparent but readable */
         color: white;
-        display: flex;
+        display: flex; /* Only display on mobile */
         flex-direction: column;
         justify-content: center;
         align-items: center;
