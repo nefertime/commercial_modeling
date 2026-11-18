@@ -339,13 +339,26 @@ body, html {
     font-size: 18px;
 }
 
+/* Five categories in one row on wide screens: smaller label, room for the "i" badge */
+@media (min-width: 1101px) {
+    .reference-category {
+        min-width: 0;
+    }
+
+    .references-categories .collapsible {
+        font-size: 16px;
+        padding: 15px 44px 15px 12px;
+    }
+}
+
 /* Responsive: Stack categories below each other on smaller screens */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
     .references-categories {
         flex-wrap: wrap;
     }
 
     .reference-category {
+        flex: 1 1 40%;
         width: 45%;
     }
 }
@@ -429,6 +442,17 @@ body, html {
 .reference-category li {
     padding: 5px 0;
     text-align: center;
+}
+
+.reference-category .reference-link {
+    color: #ff4444;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.reference-category .reference-link:hover,
+.reference-category .reference-link:focus-visible {
+    text-decoration: underline;
 }
 
 /* Content sections - hidden by default, smooth transition */
@@ -689,9 +713,33 @@ body, html {
     text-align: center;
     margin-top: 40px;
     width: 100%;
+    box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 12px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-links a {
+    color: #ff4444;
+    text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+    text-decoration: underline;
 }
 
 .copyright-footer p {
@@ -720,6 +768,10 @@ body, html {
     
     .copyright-footer p {
         font-size: 11px;
+    }
+
+    .footer-links {
+        font-size: 12px;
     }
 }
 
